@@ -1,0 +1,19 @@
+.client__form {
+    width: 60%;
+    padding-top: 3rem;
+    margin: 0 auto;
+}
+
+.client__form--label {
+    width: 150px;
+    font-size: 14px;
+    margin-right: 15px;
+    white-space: nowrap;
+}
+
+.client__form--group {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 30px;
+}
