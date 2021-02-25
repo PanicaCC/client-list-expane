@@ -1,6 +1,5 @@
 .client__form {
     width: 60%;
-    padding-top: 3rem;
     margin: 0 auto;
 }
 
@@ -15,5 +14,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.client__form--photo {
+    width: 100%;
 }
