@@ -1,3 +1,10 @@
-.client__modal--delete {
-    margin-right: 20px !important;
+/*.client__modal--delete {*/
+/*    margin-right: 20px !important;*/
+/*}*/
+
+.client__modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

@@ -24,13 +24,16 @@ const query =gql`
     }`
 const mutation =gql`
     mutation (
+        $id: ID!
         $phone: String!,
         $avatarUrl: String!
     ){ 
         updateClient (
+            id: $id,
             phone: $phone, 
             avatarUrl: $avatarUrl
         ){
+            id,
             phone, 
             avatarUrl
         }
@@ -54,6 +57,14 @@ const ClientList:React.FC = () => {
         })
     })
 
+    const updateClientInfo: any = (data: fetchTypes) => {
+        new M.Toast({html: 'Changes complete', inDuration: 3000, classes: 'blue'})
+        setTimeout(() => {
+            window.location.href = '/'
+        }, 3500)
+        return graphQLClient.request(mutation, data)
+    }
+
     //todo for future delete client
     // const deleteClientHandler = (id : string) => {
     //     console.log(id)
@@ -71,7 +82,12 @@ const ClientList:React.FC = () => {
                                 <span className="title">{item.firstName + ' ' + item.lastName}</span>
                                 <p>Phone: {item.phone}</p>
                             </div>
-                            <Modal /*deleteClientHandler={ deleteClientHandler }*/ key={(index + item.id)}  item={ item }/>
+                            <Modal
+                                /*deleteClientHandler={ deleteClientHandler }*/
+                                updateClientInfo = { updateClientInfo }
+                                key={(index + item.id)}
+                                item={ item }
+                            />
                         </li>
 
                     )
