@@ -1,10 +1,17 @@
 import React from "react";
-import { request, gql } from 'graphql-request'
+import { request, GraphQLClient, gql } from 'graphql-request'
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import Modal from "../modal-client-setting/modal-client-setting";
 import './client-list.css'
 
-const queryClient = new QueryClient()
 const endpoint = "https://test-task.expane.pro/api/graphql";
+const queryClient = new QueryClient()
+const graphQLClient = new GraphQLClient(endpoint, {
+    headers: {
+        authorization: 'Bearer MY_TOKEN',
+    },
+})
+
 const query =gql`
     {
         getClients {
@@ -13,6 +20,19 @@ const query =gql`
           lastName,
           phone,
           avatarUrl
+        }
+    }`
+const mutation =gql`
+    mutation (
+        $phone: String!,
+        $avatarUrl: String!
+    ){ 
+        updateClient (
+            phone: $phone, 
+            avatarUrl: $avatarUrl
+        ){
+            phone, 
+            avatarUrl
         }
     }`
 
@@ -34,11 +54,16 @@ const ClientList:React.FC = () => {
         })
     })
 
+    //todo for future delete client
+    // const deleteClientHandler = (id : string) => {
+    //     console.log(id)
+    // }
+
     return (
         <QueryClientProvider client={queryClient}>
             <ul className={'client__list collection'}>
             {
-                (clients.isLoading) ? <p>Loading ... </p> : Object.values(clients.data).map((item: any) => {
+                (clients.isLoading) ? <p>Loading ... </p> : Object.values(clients.data).map((item: any, index) => {
                     return (
                         <li key={item.id} className="collection-item client__item">
                             <img src={item.avatarUrl} alt={item.lastName} className="circle" />
@@ -46,10 +71,9 @@ const ClientList:React.FC = () => {
                                 <span className="title">{item.firstName + ' ' + item.lastName}</span>
                                 <p>Phone: {item.phone}</p>
                             </div>
-                            <a href="/" className="secondary-content">
-                                <i className="material-icons">manage_accounts</i>
-                            </a>
+                            <Modal /*deleteClientHandler={ deleteClientHandler }*/ key={(index + item.id)}  item={ item }/>
                         </li>
+
                     )
                 })
             }
@@ -60,7 +84,7 @@ const ClientList:React.FC = () => {
 
 export default function Wraped(){
     return(<QueryClientProvider client={queryClient}>
-            <ClientList/>
+            <ClientList />
         </QueryClientProvider>
     );
 }
