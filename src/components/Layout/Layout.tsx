@@ -17,5 +17,4 @@ const Layout:React.FC<PropTypes> = ({ children } :PropTypes) => {
         </>
     )
 }
-
 export default Layout

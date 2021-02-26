@@ -16,7 +16,6 @@ interface iProps {
 
 const Modal:(props: iProps) => JSX.Element = (props: iProps ) => {
     const [showPanel, togglePanel] = useState(false);
-
     const data = props.item
     const modal = [];
     const phonePattern = /^(([+]{0,1}\d{3})|\d?)[\s-]?[0-9]{2}[\s-]?[0-9]{3}[\s-]?[0-9]{4}$/
@@ -45,7 +44,6 @@ const Modal:(props: iProps) => JSX.Element = (props: iProps ) => {
                         <input name={'clientPhone'} defaultValue={data.phone} ref={register({ required: true, pattern: phonePattern } )}/>
                     </div>
                     {errors.clientPhone && <span className={'text-red-600'}>This field is required</span>}
-
                     <div className="modal__form--group mb-12">
                         <label htmlFor={'clienPhoto'} className={'client__form--label'}>
                             Link to client foto
@@ -56,10 +54,6 @@ const Modal:(props: iProps) => JSX.Element = (props: iProps ) => {
                 </form>
             </div>
             <div className="modal-footer">
-                {/* todo emty action type in grapql - leave for future */}
-                {/*<button type={"button"} className="waves-effect waves-light btn red client__modal--delete" onClick={ () => this.props.deleteClientHandler(data.id)}>*/}
-                {/*    Delete client*/}
-                {/*</button>*/}
                 <button type={'button'} className="waves-effect waves-light btn green" onClick={() => togglePanel(!showPanel)}>Close</button>
             </div>
         </div>
@@ -74,5 +68,4 @@ const Modal:(props: iProps) => JSX.Element = (props: iProps ) => {
         </>
     );
 }
-
 export default Modal

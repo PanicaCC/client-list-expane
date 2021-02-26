@@ -65,11 +65,6 @@ const ClientList:React.FC = () => {
         return graphQLClient.request(mutation, data)
     }
 
-    //todo for future delete client
-    // const deleteClientHandler = (id : string) => {
-    //     console.log(id)
-    // }
-
     return (
         <QueryClientProvider client={queryClient}>
             <ul className={'client__list collection'}>
@@ -83,13 +78,11 @@ const ClientList:React.FC = () => {
                                 <p>Phone: {item.phone}</p>
                             </div>
                             <Modal
-                                /*deleteClientHandler={ deleteClientHandler }*/
                                 updateClientInfo = { updateClientInfo }
                                 key={(index + item.id)}
                                 item={ item }
                             />
                         </li>
-
                     )
                 })
             }
@@ -97,7 +90,6 @@ const ClientList:React.FC = () => {
         </QueryClientProvider>
     )
 }
-
 export default function Wraped(){
     return(<QueryClientProvider client={queryClient}>
             <ClientList />
