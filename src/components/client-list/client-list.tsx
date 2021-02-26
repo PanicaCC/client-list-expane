@@ -60,7 +60,7 @@ const ClientList:React.FC = () => {
     const updateClientInfo: any = (data: fetchTypes) => {
         new M.Toast({html: 'Changes complete', inDuration: 3000, classes: 'blue'})
         setTimeout(() => {
-            window.location.href = '/'
+            window.location.href = '/client-list-expane'
         }, 3500)
         return graphQLClient.request(mutation, data)
     }
