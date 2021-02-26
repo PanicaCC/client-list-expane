@@ -1,6 +1,4 @@
-# Project Title
-
-* Project name: **Client List manager**
+# Client List manager
 
 * Created with the aim of optimizing the work of company personnel. The project allows you to keep records of customer data and make the necessary changes.
 
