@@ -2,7 +2,7 @@
   "name": "client-list",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://PanicaCC.github.io/client-list-expane",
+  "homepage": "https://panicacc.github.io/client-list-expane/",
   "dependencies": {
     "@craco/craco": "^6.1.1",
     "@testing-library/jest-dom": "^5.11.4",

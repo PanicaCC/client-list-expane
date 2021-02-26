@@ -15,8 +15,9 @@ const App:React.FC = () => {
       <BrowserRouter>
               <Layout>
                   <Switch>
-                      <Route path='/' exact component={ ClientList }/>
-                      <Route path='/new-client' component={ AddClientForm }/>
+                      <Route path='/client-explain' exact component={ ClientList }/>
+                      <Route path='/new-client' exact component={ AddClientForm }/>
+                      <Route component={ ClientList } />
                   </Switch>
               </Layout>
       </BrowserRouter>
