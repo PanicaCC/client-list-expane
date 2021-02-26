@@ -47,7 +47,7 @@ interface fetchTypes {
 
 const ClientList:React.FC = () => {
 
-    const clients : fetchTypes = useQuery('client', async () => {
+    const clients: fetchTypes = useQuery('client', async () => {
         return await request(endpoint, query).then((res)=>{
             try {
                 return res.getClients
@@ -57,7 +57,7 @@ const ClientList:React.FC = () => {
         })
     })
 
-    const updateClientInfo: any = (data: fetchTypes) => {
+    const updateClientInfo = (data: fetchTypes): any => {
         new M.Toast({html: 'Changes complete', inDuration: 3000, classes: 'blue'})
         setTimeout(() => {
             window.location.href = '/client-list-expane'
