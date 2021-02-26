@@ -1,19 +1,20 @@
 # Project Title
-name: Client List manager
-Создано с целью обеспечения оптимизации работы персонала компании. Проект позволяет вести учёт данных о клиенте и вносить необходимые изменения.
+
+* Project name: **Client List manager**
+
+* Created with the aim of optimizing the work of company personnel. The project allows you to keep records of customer data and make the necessary changes.
 
 ## Getting Started
 
-Для разварачивания проекта вам следует выполнить следуйщие команды из консоли.
-
+To deploy the project, you should run the following commands from the console.
 ```
 git clone https://github.com/PanicaCC/client-list-expane.git {folder-name}
 cd {folder-name}
 npm install or yarn install
 npm run start
 ```
-Естественно нужны навыки разработчика хотя бы на базовом уровне.
-Узнать больше: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
+Naturally, you need developer skills at least at a basic level.
+To learn more: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
 
 ## Built With
 
